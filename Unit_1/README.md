@@ -23,7 +23,7 @@
         3.-Given the variable bird = "tweet", use string interpolation to print "I am writing a tweet"
         4.-Given the variable message = "Hi Luke, I'm your father!" use slilce to extract the  sequence "Luke"
         5.-What is the difference in value and a variable in scala?
-        6.-Given the tuple ((2,4,5), (1,2,3), (3,116,23))) the number 3,141 returns
+        6.-Given the tuple ((2,4,5), (1,2,3), (3,1416,23))) the number 3,1416 returns
         
         
 #### In this practice, we did  the connotation of marios methods, mathematical in order to get the radius of a circle.
