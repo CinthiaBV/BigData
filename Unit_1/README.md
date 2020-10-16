@@ -10,7 +10,7 @@
 
 ## Index
 &nbsp;&nbsp;&nbsp;[Practice 1](#practice-1)  
-
+&nbsp;&nbsp;&nbsp;[Practice 2](#practice-2)  
 
 
 
@@ -66,7 +66,8 @@
        var t = ((2,4,5),(1,2,3),(3.1416,23))
        t._3._1
 ``` 
-&nbsp;&nbsp;&nbsp;[Practice 2](#practice-2)  
+
+### &nbsp;&nbsp;Practice 2.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
 
@@ -131,3 +132,26 @@
          /*7.-b. Add the following value to the map ("Miguel", 23)*/
           map += ("Miguel"->23)
 ```           
+
+### &nbsp;&nbsp;Practice 4.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+        1.- Recursive version descending.
+       
+#### In this practice what we did is fibonacci.
+
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+       
+```scala
+      /* Each of these calls, if it is greater than 1, will again be calling your previous    two.*/
+    /* 1.- Recursive  descending.*/
+    def fib1( n : Int) : Int =
+    {
+        if(n<2) n
+        else fib1( n-1 ) + fib1( n-2 )
+    }
+```
