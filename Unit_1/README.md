@@ -10,8 +10,10 @@
 
 ## Index
 &nbsp;&nbsp;&nbsp;[Practice 1](#practice-1)  
-&nbsp;&nbsp;&nbsp;[Practice 2](#practice-2)  
-&nbsp;&nbsp;&nbsp;[Practice 4](#practice-4)  
+&nbsp;&nbsp;&nbsp;[Practice 2](#practice-2)
+&nbsp;&nbsp;&nbsp;[Practice 3](#practice-3)    
+&nbsp;&nbsp;&nbsp;[Practice 4](#practice-4) 
+ 
 
 
 ### &nbsp;&nbsp;Practice 1.
@@ -133,13 +135,21 @@
           map += ("Miguel"->23)
 ```           
 
+### &nbsp;&nbsp;Practice 3.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
 ### &nbsp;&nbsp;Practice 4.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
 
         1.- Recursive version descending.
+        2.- Explicit formula.
+        3.- Iterative version.
+        4.- Iterative version with variables.
+        5.- Iterative vector version.
        
-#### In this practice what we did is fibonacci.
+#### In this practice we did The Fibonacci Sequence.
 
 </br>
 
@@ -155,3 +165,33 @@
         else fib1( n-1 ) + fib1( n-2 )
     }
 ```
+```scala
+       /*Fibonacci sequence uch that each number is the sum of the two preceding ones, starting from 0 and 1. Fibonacci numbers have the generating function*/
+    /* 2.- Explicit formula.*/
+
+    def fib2( n : Int ) : Int = {
+        if(n<2)n
+        else
+        {
+            var y = ((1+math.sqrt(5))/2)
+            var k = ((math.pow(y,n)-math.pow((1-y),n))/math.sqrt(5))      
+            k.toInt
+        }
+}
+
+```
+```scala
+/* 5.- Iterative vector version.*/
+    def fib5(n:Int): Int={
+    if(n<2)n    
+    else{        
+        var b = List.range(0,n+1)
+        for(k<-Range(2,n+1)){            
+            b = b.updated(k,(b(k-1)+b(k-2)))            
+        }            
+        b(n)
+     }     
+}
+
+```
+
