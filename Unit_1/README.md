@@ -11,11 +11,16 @@
 ## Index
 &nbsp;&nbsp;&nbsp;[Practice 1](#practice-1)  
 &nbsp;&nbsp;&nbsp;[Practice 2](#practice-2)
+
 &nbsp;&nbsp;&nbsp;[Practice 3](#practice-3)    
 &nbsp;&nbsp;&nbsp;[Practice 4](#practice-4) 
+
 &nbsp;&nbsp;&nbsp;[Practice 5](#practice-5) 
+
 &nbsp;&nbsp;&nbsp;[Practice GitHub](#practice-GitHub) 
+
 &nbsp;&nbsp;&nbsp;[Homework 1](#Homewok-1) 
+
 &nbsp;&nbsp;&nbsp;[Investigation 1 ](#Investigation-1) 
  
 
