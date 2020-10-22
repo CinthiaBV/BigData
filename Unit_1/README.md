@@ -13,6 +13,10 @@
 &nbsp;&nbsp;&nbsp;[Practice 2](#practice-2)
 &nbsp;&nbsp;&nbsp;[Practice 3](#practice-3)    
 &nbsp;&nbsp;&nbsp;[Practice 4](#practice-4) 
+&nbsp;&nbsp;&nbsp;[Practice 5](#practice-5) 
+&nbsp;&nbsp;&nbsp;[Practice GitHub](#practice-GitHub) 
+&nbsp;&nbsp;&nbsp;[Homework 1](#Homewok-1) 
+&nbsp;&nbsp;&nbsp;[Investigation 1 ](#Investigation-1) 
  
 
 
@@ -84,7 +88,7 @@
 
 
 
-#### In this practice, we created array, list and map
+#### In this practice, we created array, list and map.
      
 </br>
 
@@ -138,6 +142,111 @@
 ### &nbsp;&nbsp;Practice 3.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+1.- Analysis
+
+#### In this practice, we analyse code lines.
+     
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+```scala
+
+//Define list event
+	//cicle
+	// if n is a number divisible on 2 print is even
+	// else n is not a number divisible on 2  print is odd
+	def listEvens(list:List[Int]): String ={
+	    for(n <- list){
+	        if(n%2==0){
+	            println(s"$n is even")
+	        }else{
+	            println(s"$n is odd")
+	        }
+	    }
+	    return "Done"
+	}
+	// In this section of the code we declare 2 lists
+	// and 2 Lis Events
+	//Based on the elements of this list 
+	//returning messages of is even or is odd based on the list elements
+	val l = List(1,2,3,4,5,6,7,8)
+	val l2 = List(4,3,22,55,7,8)
+	listEvens(l)
+	listEvens(l2)
+	
+
+	//3 7 afortunado
+	//List event
+	def afortunado(list:List[Int]): Int={
+	    var res=0
+	    for(n <- list){
+	        if(n==7){
+	            res = res + 14
+	        }else{
+	            res = res + n
+	        }
+	    }
+	    return res
+	}
+	//Values of afortunado
+	//Based of values of this list we gona to receive results based on the condictional of for cicle
+	val af= List(1,7,7)//
+	//Print the result afortunado 29
+	//1 = 1    7=14      7=14
+	//1+14+14 = 29
+	println(afortunado(af))
+	//Define event list Balance
+	def balance(list:List[Int]): Boolean={
+	    var primera = 0
+	    var segunda = 0
+	
+
+	    segunda = list.sum
+	    //Primera Sum values to our list
+	    //Segunda rest values to our list
+	
+
+	    for(i <- Range(0,list.length)){
+	        primera = primera + list(i)
+	        segunda = segunda - list(i)
+	
+
+	        if(primera == segunda){
+	            return true
+	        }
+	    }
+	    return false 
+	}
+	//List ELements
+	val bl = List(3,2,1)
+	val bl2 = List(2,3,3,2)
+	val bl3 = List(10,30,90)
+	//run
+	balance(bl)
+	balance(bl2)
+	balance(bl3)
+	//Define palindromo
+	//Reverse Palabra(Word)
+	// if word dont are exactly the same word reverse
+	//return false
+	def palindromo(palabra:String):Boolean ={
+	    return (palabra == palabra.reverse)
+	}
+	
+
+	val palabra = "OSO" 
+	val palabra2 = "ANNA" 
+	val palabra3 = "JUAN" 
+	//Return Boolean
+	//run
+	println(palindromo(palabra))
+	println(palindromo(palabra2))
+	println(palindromo(palabra3))
+
+```   
+
 
 ### &nbsp;&nbsp;Practice 4.
 
@@ -195,3 +304,202 @@
 
 ```
 
+### &nbsp;&nbsp;Practice 5.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+1.-Examples of 15 Data Frames 
+
+#### In this practice we did examples of DataFrames.
+
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+```scala
+
+//Import Data frames
+import spark.implicits._
+
+val Information = Seq (
+    ("Cinthia","Sales","B.C", 45,2,2333),
+    ("Laura","HR","B.C", 28,21,3333),
+    ("Karla","QC","B.C", 45,20,6333),
+    ("Hugo","QC","B.C", 35,4,6333),
+    ("Anabel","Sales","B.C", 21,54,7899)
+)
+val df= simpleData.toDF("name","area","city","age","hours","payment")
+
+//1 Show the information of Dataframe
+df.show()
+
+//2 Returns the population covariance for two columns.
+df.select(covar_pop("Sales","Sales")).show()
+
+//3 Returns the sample covariance for two columns.
+
+df.select(covar_samp("Sales","Sales2")).show()
+
+//4 Returns the first element in a column.
+df.select(first("Sales")).show()
+
+
+//5 Select only the last item of Sales
+
+df.select(last("Sales")).show()
+
+//6 Returns the sum of all distinct values in a column.
+df.select(sumDistinct("Sales")).show()
+
+// 7 Returns the population covariance for two columns.
+
+df.select(covar_pop("Sales")).show()
+
+//8 Function returns the average of values in the input column.
+df.select(avg("Sales")).show()
+
+
+// 9 Returns the unbiased variance of the values in a column.
+ 
+df.select(var_samp("Sales")).show()
+
+//10 Returns the count of distinct items in a group.
+df.select(approx_count_distinct("Sales")).show()
+
+
+//11 Returns all values from an input column with duplicates.
+df.select(collect_list("Sales")).show()
+ 
+
+// 12 Returns the kurtosis of the values in a group. 
+df.select(kurtosis("Sales")).show()
+
+//13 Returns the skewness of the values in a group. 
+df.select(skewness("Sales")).show()
+
+
+//14 Returns the maximum value in a column.
+df.select(max("Company")).show()
+
+// 15 Returns the Pearson Correlation Coefficient for two columns.
+df.select(corr("Sales","Sales2")).show()
+
+```
+
+### &nbsp;&nbsp;Practice GitHub.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+1.-Git Flow Practice 
+
+#### In this practice we did examples classes.
+
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+```scala
+
+Introduction
+
+Git is an open source version specific control system created by Linus Torvalds in 2005.
+
+Specifically, Git is a distributed version control system, which means that the entire code base and its history are 
+available on every developer's computer, allowing easy access to branching and merging.
+
+GitHub is a non-profit company that offers a hosting service for repositories stored in the cloud. Essentially, it makes it easier
+ for individuals and teams to use Git as the control and collaboration version. The GitHub interface is fairly easy to use for the novice 
+ developer who wants to take advantage of Git. Without GitHub, using Git generally requires a bit more tech savvy and command line usage.
+
+```
+
+### &nbsp;&nbsp;Homework 1.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+1.-Pearson
+
+#### In this practice we did investigation of Pearson.
+
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+```scala
+Content
+
+What is Pearson's correlation coefficient? 3
+How the Pearson 3 Correlation Coefficient is Calculated
+Interpretation of the Karl Pearson correlation coefficient 3
+Advantages and disadvantages of the Pearson 4 correlation coefficient
+Bibliography 5
+
+
+
+
+What is Pearson's correlation coefficient?
+
+Pearson's correlation coefficient is a test that measures the statistical relationship between two continuous variables. 
+If the association between the elements is not linear, then the coefficient is not adequately represented.
+The correlation coefficient can take a range of values ​​from +1 to -1. A value of 0 indicates that there is no association 
+between the two variables. A value greater than 0 indicates a positive association. That is, as the value of one variable 
+increases, so does the value of the other. A value less than 0 indicates a negative association; that is, as the value of 
+one variable increases, the value of the other decreases.
+To carry out the Pearson correlation it is necessary to fulfill the following:
+• The measurement scale must be an interval or ratio scale.
+• The variables must be approximately distributed.
+• The association must be linear.
+• There should be no outliers in the data.
+
+```
+
+### &nbsp;&nbsp;Investigation 1.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+1.-Pair Coding
+
+#### In this practice we did investigation of Pair Coding.
+
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+```scala
+Content
+
+Pair Programming 3
+What is pair programming? 3
+Internship in pair programming 3
+Advantages and disadvantages of pair programming 4
+What are the benefits of this approach? 5
+
+
+
+Pair Programming
+
+Developing new software is not an easy process. Depending on the size of the program, a large number of 
+potential junctures, roles, and problematic issues will need to be considered. Even the most expert software 
+developers can become disoriented. Hence, in recent years other more modern working methods have been developed 
+that allow more efficient programming and generate error-free code: Scrum and Kanban serve, for example, to improve
+ the complete system.
+Pair programming doesn't try to be all that encompassing: developers always work in pairs on code. How does it 
+work and what are the advantages of this working method?
+What is pair programming?
+
+The method known as pair programming (in Spanish, pair programming) is used mainly in agile software development and,
+ more specifically, in extreme programming (XP). Pair programming specifies that there are always two people working 
+ on the code at the same time, and that they sit together as much as possible. One is in charge of writing the code
+  and the other of supervising it in real time. At the same time, they are constantly exchanging impressions: they 
+  discuss problems, find solutions and develop creative ideas.
+  Typically, these two workers are assigned different roles: the programmer who has been assigned the pilot role is 
+  responsible for writing the code. The programmer who has been assigned the copilot role supervises that code. One of 
+  the rules of pair programming states that these two roles are exchanged regularly (at short intervals). In this way, 
+  a possible hierarchical gap is avoided: equality between both workers is promoted and a fluid exchange of roles is achieved.
+In addition, ideally, the workspace is also tailored to the specific requirements of pair programming. Each worker must have 
+their own mouse, keyboard and screen, which will always show the same information as the colleague's.
+Somewhat less common is the method called remote pair programming. In this case, the programmers do not sit together, but are 
+located in completely different places. For this method to work, you must have special technical solutions. Even despite the distance,
+ colleagues must have a direct line of communication and must be able to access the code and view modifications in real time.
+
+ ```
