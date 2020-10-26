@@ -22,6 +22,9 @@
 &nbsp;&nbsp;&nbsp;[Homework 1](#Homewok-1) 
 
 &nbsp;&nbsp;&nbsp;[Investigation 1 ](#Investigation-1) 
+
+&nbsp;&nbsp;&nbsp;[Test 1 ](#Test-1)  
+
  
 
 
@@ -506,5 +509,43 @@ their own mouse, keyboard and screen, which will always show the same informatio
 Somewhat less common is the method called remote pair programming. In this case, the programmers do not sit together, but are 
 located in completely different places. For this method to work, you must have special technical solutions. Even despite the distance,
  colleagues must have a direct line of communication and must be able to access the code and view modifications in real time.
+
+ ```
+
+
+ ### &nbsp;&nbsp;Test 1.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+1. Start a simple Spark session.
+2. Upload Netflix Stock CSV file, have Spark infer data types. 3. What are the names of the columns?
+4. What is the scheme like?
+5. Print the first 5 columns.
+6. Use describe () to learn about the DataFrame.
+7. Create a new dataframe with a new column called “HV Ratio” which is the relationship between the price in the “High” column versus the “Volume” column of shares traded for a day. (Hint: It is a column operation).
+8. What day had the highest peak in the “Close” column?
+9. Write in your own words in a comment of your code. What is the meaning of the Close column "Close"?
+10. What is the maximum and minimum of the “Volume” column?
+11.With Scala / Spark $ Syntax answer the following:
+◦ Hint: Basically very similar to the dates session, you will have to create another dataframe to answer some of the items.
+to. 
+a. How many days was the “Close” column less than $ 600?
+b. What percentage of the time was the “High” column greater than $ 500? 
+c. What is the Pearson correlation between column "High" and column "Volume"? d. What is the maximum in the “High” column per year?
+e. What is the “Close” column average for each calendar month?
+
+Evaluation instructions
+
+- Delivery time 4 days
+- At the end put the code and the documentation with its explanation in the corresponding branch of your github, likewise make your explanation of the solution in your google drive in google document (Cover, Introduction, Development, etc). - Finally defend your development in a video of 8-10 min explaining your solution and comments, this will serve to give your rating of this evaluation practice, this video must be uploaded to YouTube to be shared by a public link (Use google meet with the cameras turned on and record your defense to build the video).
+
+
+#### In this practice we did examples of DataFrames.
+
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+```scala
 
  ```
