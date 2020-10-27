@@ -540,12 +540,36 @@ Evaluation instructions
 - At the end put the code and the documentation with its explanation in the corresponding branch of your github, likewise make your explanation of the solution in your google drive in google document (Cover, Introduction, Development, etc). - Finally defend your development in a video of 8-10 min explaining your solution and comments, this will serve to give your rating of this evaluation practice, this video must be uploaded to YouTube to be shared by a public link (Use google meet with the cameras turned on and record your defense to build the video).
 
 
-#### In this practice we did examples of DataFrames.
+#### In this practice we did e Test 1.
 
 </br>
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Code.
 
 ```scala
+
+//1. Start a simple Spark session.
+
+import org.apache.spark.sql.SparkSession
+
+val spark = SparkSession.builder().getOrCreate()
+
+
+//2. Upload Netflix Stock CSV file, have Spark infer data types. 
+
+val df =spark.read.option("header","true").option("inferSchema","true").csv("Netflix_2011_2016.csv")
+
+//3. What are the names of the columns?
+
+df.columns
+//4. What is the scheme like?
+
+df.printSchema()
+//5. Print the first 5 columns.
+
+df.head(5)
+//6. Use describe () to learn about the DataFrame.
+
+df.describe().show()
 
  ```
