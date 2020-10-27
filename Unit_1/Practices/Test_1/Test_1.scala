@@ -27,6 +27,7 @@ df.describe().show()
 //shares traded for one day.
 val df2 = df.withColumn("HV Ratio",df("High")/df("Volume"))
 
+
 //8.What day had the highest peak in the “Close” column?
 df.orderBy($"High".desc).show(1)
 
