@@ -96,48 +96,85 @@ val R2 = trainingSummary.r2
 ### &nbsp;&nbsp;Practice 2.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
-   	 
-    	1.-Create a list called "list" with the elements "red", "white", "black"
-    	2.-Add 5 more items to "list" "green", "yellow", "blue", "orange", "pearl"
-    	3.-Bring the "list" "green", "yellow", "blue" items
-    	4.-Create a number array in the 1-1000 range in 5-in-5 steps
-    	5.-What are the unique elements of the List list (1,3,3,4,6,7,3,7) use conversion to sets
-    	6.-Create a mutable map called names containing the following"Jose", 20, "Luis", 24, "Ana", 23, "Susana", "27"
-    	6.-a. Print all map keys
-    	7.-b. Add the following value to the map ("Miguel", 23)
-   	 
-#### In this practice  we created lists with different colors, aslo we added elements to the lists, and finally  we created an array with ranges and that they count from 5 to 5. We made a mutable map and printed.
-   	 
+
+1. Import libraries.
+2. Import a Spark Session.
+3. Create a Spark session.
+4. Load the data stored in LIBSVM format as a DataFrame.
+5. Index labels, adding metadata to the label column.
+6. Automatically identify categorical features, and index them.
+7. Split the data into training and test sets.
+8. Train a DecisionTree model. 
+9. Convert indexed labels back to original labels.
+10. Chain indexers and tree in a Pipeline.
+11. Train model.
+12. Make predictions.
+13. Select example rows to display.
+14. Select (prediction, true label) and compute test error.
+15. Print the tree obtained from the model
+
+
 #### &nbsp;&nbsp;&nbsp;&nbsp; Code.
-```scala
-     	/*1.-Create a list called "list" with the elements "red", "white", "black"*/
-     	var lista = collection.mutable.MutableList("rojo","blanco","negro") 	 
 
-     	/*2.-Add 5 more items to "list" "green", "yellow", "blue", "orange", "pearl"*/
-      	lista += ("verde","amarillo", "azul", "naranja", "perla")
+  	 
+``` scala
+//Import libraries.
+1. import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.classification.DecisionTreeClassificationModel
+import org.apache.spark.ml.classification.DecisionTreeClassifier
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+import org.apache.spark.ml.feature.{IndexToString, StringIndexer, VectorIndexer}
+ 
+//Import a Spark Session.
+2.import org.apache.spark.sql.SparkSession
+
+//Create a Spark session.
+3. def main(): Unit = {
+   val spark = SparkSession.builder.appName("DecisionTreeClassificationExample").getOrCreate()
+
+//Load the data stored in LIBSVM format as a DataFrame.
+4.    val data = spark.read.format("libsvm").load("sample_libsvm_data.txt")
+
+// Index labels, adding metadata to the label column.
+5. val labelIndexer = new StringIndexer().setInputCol("label").setOutputCol("indexedLabel").fit(data)
+
+//Automatically identify categorical features, and index them.
+6. 
+ val featureIndexer = new VectorIndexer().setInputCol("features").setOutputCol("indexedFeatures").setMaxCategories(4).fit(data)
+
+//Split the data into training and test sets.
+ 
+7.    val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3))
+
+//Train a DecisionTree model. 
+8.    val dt = new DecisionTreeClassifier().setLabelCol("indexedLabel").setFeaturesCol("indexedFeatures")
+ 
+//Convert indexed labels back to original labels. 
+9.   val labelConverter = new IndexToString().setInputCol("prediction").setOutputCol("predictedLabel").setLabels(labelIndexer.labels)
 
 
-     	/*3.-Bring the "list" "green", "yellow", "blue" items*/
-         	lista(3)
-         	lista(4)
-         	lista(5)
+//Chain indexers and tree in a Pipeline.
+10   val pipeline = new Pipeline().setStages(Array(labelIndexer, featureIndexer, dt, labelConverter))
+ 
+// Train model.
+11. 
+   val model = pipeline.fit(trainingData)
+ 
+// Make predictions.
+12.    val predictions = model.transform(testData)
+ 
+//Select example rows to display. 
+13.    predictions.select("predictedLabel", "label", "features").show(5)
+ 
+//Select (prediction, true label) and compute test error. 
+14. 
+   val evaluator = new MulticlassClassificationEvaluator().setLabelCol("indexedLabel").setPredictionCol("prediction").setMetricName("accuracy")
+   val accuracy = evaluator.evaluate(predictions)
+   println(s"Test Error = ${(1.0 - accuracy)}")
 
-     	/*4.-Create a number array in the 1-1000 range in 5-in-5 steps*/
-           	var v = Range(1,1000,5)
+//   Print the tree obtained from the model
 
-
-     	/*5.-What are the unique elements of the List list (1,3,3,4,6,7,3,7) use conversion to sets*/
-          	var l = List(1,3,3,4,6,7,3,7)
-           	l.toSet
-
-
-     	/*6.-Create a mutable map called names containing the following"Jose", 20, "Luis", 24, "Ana", 23, "Susana", "27*/
-      	var map=collection.mutable.Map(("Jose", 20),("Luis", 24),("Ana", 23),("Susana", "27"))
-
-     	/*6.-a. Print all map keys*/
-       	map.keys
-
-     	/*7.-b. Add the following value to the map ("Miguel", 23)*/
-      	map += ("Miguel"->23)
-
-```
+15.    val treeModel = model.stages(2).asInstanceOf[DecisionTreeClassificationModel]
+   println(s"Learned classification tree model:\n ${treeModel.toDebugString}")
+ ```
+ 
