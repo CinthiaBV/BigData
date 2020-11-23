@@ -34,6 +34,8 @@
 13. Print the coefficients and intercept for the linear regression
 14. Summarize the model on the training set and print the output of some metrics
 15. Show the residuals values, the RMSE, the MSE, and also the R^2
+
+#### In this practice  we use LinealRegression
  
 #### &nbsp;&nbsp;&nbsp;&nbsp; Code.
 
@@ -104,7 +106,7 @@ val R2 = trainingSummary.r2
     	6.-a. Print all map keys
     	7.-b. Add the following value to the map ("Miguel", 23)
    	 
-#### In this practice what we did we created lists with different colors, we added elements to the lists, we created an array with ranges and that they count from 5 to 5, we made a mutable map, we printed them and we added element to that map
+#### In this practice  we created lists with different colors, aslo we added elements to the lists, and finally  we created an array with ranges and that they count from 5 to 5. We made a mutable map and printed.
    	 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Code.
 ```scala
