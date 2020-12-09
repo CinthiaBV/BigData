@@ -16,7 +16,7 @@ import org.apache.log4j.Level
 //Import Data
 val data = sc.textFile("iris-data-prepared.txt")
 
-// Trasform in to dataset in we gonna do take the column species with ticked of reference 
+// Trasform in to dataset in we gonna do take the column species with label of reference 
 //sepal_length,sepal_width,petal_length,petal_width, trasforms this columns in vectores
 val NaiveBayesDataSet = data.map { line => val 
 columns = line.split(',')
@@ -48,10 +48,10 @@ val testingDataSet = allDistinctData(1)
 println("number of training data =",trainingDataSet.count())
 println("number of test data =",testingDataSet.count())
 
-//Creamos nuestro modelo con las funciones de NaiveBayes que nos ofrecen los paquetes de scala y lo entrenamos con nuestro dataset de entrenamiento
+//Create model with the functions of naive bayes what oferr packaje of scala and will train to be our data set of training 
 val myNaiveBayesModel = NaiveBayes.train(trainingDataSet)
 
-//A nuestro dataset de Testeo cada uno de sus valores los va leyendo nuestro modelo y este tratara de predecir y los comparara.
+//  test dataset is read by each one of its values and it will try to predict and compare them.
 val predictedClassification = testingDataSet.map( x => 
  (myNaiveBayesModel.predict(x.features), x.label))
 
