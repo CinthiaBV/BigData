@@ -353,6 +353,79 @@ import org.apache.spark.ml.feature.{IndexToString, StringIndexer, VectorIndexer}
    println(s"Learned classification tree model:\n ${treeModel.toDebugString}")
  ```
  
+ ### &nbsp;&nbsp;Practice 5.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+
+1. Import libraries.
+2. Import a Spark Session.
+3. Create a Spark session.
+4. Load the data and create a Dataframe.
+5. Index labels
+6. Automatically identify categorical features, and index them.
+7. Split the data
+8. Train a RandomForest mode
+9. Convert indexed labels.
+10. Chain indexers and forest in a Pipeline.
+11. Train model.
+12. Make predictions.
+13. Select example rows to display.
+14. Select (prediction, true label) and compute test error.
+15. Print the trees obtained from the model.
+
+#### In this practice  we use Random forest classifier
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+``` scala
+// Import libraries.
+import org.apache.spark.ml.Pipeline
+import org.apache.spark.ml.classification.{RandomForestClassificationModel, RandomForestClassifier}
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+import org.apache.spark.ml.feature.{IndexToString, StringIndexer, VectorIndexer}
+
+//Import a Spark Session.
+ import org.apache.spark.sql.SparkSession
+//Create a Spark session.
+def main(): Unit = {
+   val spark = SparkSession.builder.appName("RandomForestClassifierExample").getOrCreate()
+// Load the data and create a Dataframe.
+ val data = spark.read.format("libsvm").load("sample_libsvm_data.txt")
+ //Index labels 
+    val labelIndexer = new StringIndexer().setInputCol("label").setOutputCol("indexedLabel").fit(data)
+ //Automatically identify categorical features, and index them.   
+    val featureIndexer = new VectorIndexer().setInputCol("features").setOutputCol("indexedFeatures").setMaxCategories(4).fit(data)
+ // Split the data    
+    val Array(trainingData, testData) = data.randomSplit(Array(0.7, 0.3))
+ // Train a RandomForest mode   
+    val rf = new RandomForestClassifier().setLabelCol("indexedLabel").setFeaturesCol("indexedFeatures").setNumTrees
+
+ // Convert indexed labels.   
+    val labelConverter = new IndexToString().setInputCol("prediction").setOutputCol("predictedLabel").setLabels(labelIndexer.labels)
+
+ // Chain indexers and forest in a Pipeline.   
+   val pipeline = new Pipeline().setStages(Array(labelIndexer, featureIndexer, rf, labelConverter))
+ // Train model   
+   val model = pipeline.fit(trainingData)
+
+ // Make predictions   
+   val predictions = model.transform(testData)
+
+ //  Select example rows to display.
+   predictions.select("predictedLabel", "label", "features").show(5)
+
+ //  Select (prediction, true label) and compute test error.
+   val evaluator = new MulticlassClassificationEvaluator().setLabelCol("indexedLabel").setPredictionCol("prediction").setMetricName("accuracy")
+   val accuracy = evaluator.evaluate(predictions)
+   println(s"Test Error = ${(1.0 - accuracy)}")
+
+// Print the trees obtained from the model.   
+   val rfModel = model.stages(2).asInstanceOf[RandomForestClassificationModel]
+   println(s"Learned classification forest model:\n ${rfModel.toDebugString}")
+
+   ```
+
 ### &nbsp;&nbsp;Practice 6.
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
