@@ -590,5 +590,80 @@ object MultilayerPerceptronClassifierExample {
 
  ```
   
+ ### &nbsp;&nbsp;Practice 8.
 
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+
+1. Import libraries and package
+2. Import a Spark Session. 3.Load the data from the file and add it to a variable to train it.
+3. Load the data stored in LIBSVM format as a DataFrame.
+4. Create an object of type LinearSVC.
+5. Fit the model
+6. Print result
+
+
+#### In this practice  we use Linear Support Vector Machine
+ 
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+
+```scala
+//1. Import libraries and package
+1.package org.apache.spark.examples.ml
+import org.apache.spark.ml.classification.LinearSVC
+// Import a Spark Session. 3.Load the data from the file and add it to a variable to train it.
+2.import org.apache.spark.sql.SparkSession
+//Load the data stored in LIBSVM format as a DataFrame.
+3.val spark = SparkSession.builder.appName("LinearSVCExample").getOrCreate()
+
+4. val training = spark.read.format("libsvm").load("/usr/local/spark-2.3.4-bin-hadoop2.6/data/mllib/sample_libsvm_data.txt")
+5. val lsvc = new LinearSVC().setMaxIter(10).setRegParam(0.1)
+6. val lsvcModel = lsvc.fit(training)
+7. println(s"Coefficients: ${lsvcModel.coefficients} Intercept: ${lsvcModel.intercept}")
+
+```
+ ### &nbsp;&nbsp;Practice 9.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
+1. Import libraries.
+2. Import a Spark Session.
+3. Create a Spark session.
+4. Load data file.
+5. Generate the train/test split.
+6. Instantiate the base classifier
+7. Instantiate the One Vs Rest Classifier.
+8. Train the multiclass model.
+9. Score the model on test data.
+10. Obtain evaluator.
+11. Compute the classification error on test data.
+12. Print result
+
+#### In this practice  we use One-vs-Rest classifier.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Code.
+  ```scala
+1.import org.apache.spark.ml.classification.{LogisticRegression, OneVsRest}
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+2.import org.apache.spark.sql.SparkSession
+
+3. def main(): Unit = {
+   val spark = SparkSession.builder.appName("MulticlassClassificationEvaluator").getOrCreate()
+4.val inputData = spark.read.format("libsvm")load("data/mllib/sample_multiclass_classification_data.txt")
+5.val Array(train, test) = inputData.randomSplit(Array(0.8, 0.2))
+ 
+ 6.val classifier = new LogisticRegression()
+.setMaxIter(10)
+.setTol(1E-6)
+.setFitIntercept(true)
+
+7val ovr = new OneVsRest().setClassifier(classifier)
+
+8. val ovrModel = ovr.fit(train)
   
+9. val predictions = ovrModel.transform(test)
+
+10. val evaluator = new MulticlassClassificationEvaluator()
+.setMetricName("accuracy")
+11.val accuracy = evaluator.evaluate(predictions)
+12.println(s"Test Error = ${1 - accuracy}")
+
+  ```
