@@ -41,9 +41,6 @@ import org.apache.spark.ml.linalg.Vectors
 val assembler = (new VectorAssembler()
                   .setInputCols(Array("Daily Time Spent on Site", "Age","Area Income","Daily Internet Usage","Hour","Male"))
                   .setOutputCol("features"))
-
-
-
 //Random split
 val Array(training, test) = logregdata.randomSplit(Array(0.7, 0.3), seed = 12345)
 
@@ -57,7 +54,6 @@ val pipeline = new Pipeline().setStages(Array(assembler, lr))
 val model = pipeline.fit(training)
 
 val results = model.transform(test)
-
 
 //Import multiclassMetrics
 import org.apache.spark.mllib.evaluation.MulticlassMetrics
