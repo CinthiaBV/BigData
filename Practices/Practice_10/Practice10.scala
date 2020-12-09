@@ -17,7 +17,7 @@ import org.apache.log4j.Level
 val data = sc.textFile("iris-data-prepared.txt")
 
 // Trasform in to dataset in we gonna do take the column species with label of reference 
-//sepal_length,sepal_width,petal_length,petal_width, trasforms this columns in vectores
+//sepal_length,sepal_width,petal_length,petal_width, transforms this columns in vectores
 val NaiveBayesDataSet = data.map { line => val 
 columns = line.split(',')
 LabeledPoint(columns(4).toDouble,
