@@ -15,11 +15,17 @@
 &nbsp;&nbsp;&nbsp;[Practice 4](#practice-4)    
 &nbsp;&nbsp;&nbsp;[Practice 5](#practice-5)  
 &nbsp;&nbsp;&nbsp;[Practice 6](#practice-6)
-&nbsp;&nbsp;&nbsp;[Practice 7](#practice-7)    
+
+&nbsp;&nbsp;&nbsp;[Practice 7](#practice-7) 
+
 &nbsp;&nbsp;&nbsp;[Practice 8](#practice-8)    
-&nbsp;&nbsp;&nbsp;[Practice 9](#practice-9)  
+&nbsp;&nbsp;&nbsp;[Practice 9](#practice-9) 
+
 &nbsp;&nbsp;&nbsp;[Practice 10](#practice-10) 
-&nbsp;&nbsp;&nbsp;[Test_2](#Test-2)     
+
+&nbsp;&nbsp;&nbsp;[Test_2](#Test-2)    
+
+&nbsp;&nbsp;&nbsp;[Link_Video](#Link-video)     
 
 ### &nbsp;&nbsp;Practice 1.
 
@@ -849,3 +855,8 @@ val evaluator = new MulticlassClassificationEvaluator().setMetricName("accuracy"
 println(s"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}")
 
   ```
+
+### &nbsp;&nbsp;Link del video.
+
+#### &nbsp;&nbsp;&nbsp;&nbsp; Link.
+1. https://youtu.be/gZWQtl9peyo
