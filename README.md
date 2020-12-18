@@ -7,6 +7,7 @@
 
 ### <p align="center">  Maestro: Jose Christian Romero Hernandez	</p>
 ### <p align="center">  No. de control y nombre del alumno: 15211916 - Vargas Garcia Cinthia Gabriela</p>
+### <p align="center">  No. de control y nombre del alumno: 16210561 - Oliver Cardenas Jesus Alejandro</p>
 
 ### Index
 
