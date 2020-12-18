@@ -7,6 +7,7 @@
 
 ### <p align="center">  Maestro: Jose Christian Romero Hernandez	</p>
 ### <p align="center">  No. de control y nombre del alumno: 15211916 - Vargas Garcia Cinthia Gabriela</p>
+### <p align="center">  No. de control y nombre del alumno: 16210561 - Oliver Cardenas Jesus Alejandro</p>
 
 ### Index
 
@@ -104,5 +105,17 @@ model.clusterCenters.foreach(println)
 
 ### &nbsp;&nbsp;Link_Video.
 
+<<<<<<< HEAD
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
 1.- https://youtu.be/escA1Oyz0zM
+=======
+// We evaluate the groups using Within Set Sum of Squared Errors WSSSE the objective is to minimize the sum of squares of the distance between the points of each set: the Euclidean distance squared. This is the goal of WCSS
+val WSSE = model.computeCost(features)
+println(s"Within set sum of Squared Errors = $WSSE")
+
+// We print the clusters
+println("Cluster Centers: ")
+model.clusterCenters.foreach(println)
+
+```
+>>>>>>> aac5f0f99616290d6a571ece05524eac361623a0
