@@ -19,27 +19,25 @@
 ### &nbsp;&nbsp;Project .
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
-Develop the following instructions in Spark with the Scala programming language.
+/ Project content
+//1.- Objective: Comparison of the performance following machine learning algorithms
+// - SVM
+// - Decision Three
+// - Logistic Regresion
+// - Multilayer perceptron
+// With the following data set: https://archive.ics.uci.edu/ml/datasets/Bank+Marketing
 
-Objective:
-The goal of this hands-on test is to try to group customers from specific regions of a wholesaler. This based on the sales of some product categories.
+// Content of the final project document
+// 1. Cover
+// 2. Index
+// 3. Introduction
+// 4. Theoretical framework of algorithms
+// 5. Implementation (What tools used and why (in this case spark with scala))
+// 6. Results (A table with the data for each algorithm to see its performance)
+// and its respective explanation.
+// 7. Conclusions
+// 8. References (No wikipedia for any reason, try to make them scientific articles)
+// The document must be referenced
 
-The data sources are in the repository:
-https://github.com/jcromerohdz/BigData/blob/master/Spark_clustering/Wholesale%20customers%20data.csv
-
-    1. Import a simple Spark session.
-    2. Use lines of code to minimize errors
-    3. Create an instance of the Spark session
-    4. Import the Kmeans library for the clustering algorithm.
-    5. Load the Wholesale Customers Data dataset
-    6. Select the following columns: Fresh, Milk, Grocery, Frozen, Detergents_Paper, Delicassen and call this set feature_data
-    7. Import Vector Assembler and Vector
-    8. Create a new Vector Assembler object for the feature columns as an input set, remembering that there are no labels
-    9. Use the assembler object to transform feature_data
-    10. Create a Kmeans model with K = 3
-    11. Evaluate the groups using Within Set Sum of Squared Errors WSSSE and print the centroids.
-
-Evaluation instructions
-- Delivery time 4 days
-
+// Note: if the document is not presented, I will not review its development of the project
 
