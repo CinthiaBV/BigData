@@ -19,24 +19,39 @@
 ### &nbsp;&nbsp;Project .
 
 #### &nbsp;&nbsp;&nbsp;&nbsp; Instructions.
-/ Project content
+// Project content
+
 //1.- Objective: Comparison of the performance following machine learning algorithms
+
 // - SVM
+
 // - Decision Three
+
 // - Logistic Regresion
+
 // - Multilayer perceptron
+
 // With the following data set: https://archive.ics.uci.edu/ml/datasets/Bank+Marketing
 
 // Content of the final project document
+
 // 1. Cover
+
 // 2. Index
+
 // 3. Introduction
+
 // 4. Theoretical framework of algorithms
+
 // 5. Implementation (What tools used and why (in this case spark with scala))
+
 // 6. Results (A table with the data for each algorithm to see its performance)
 // and its respective explanation.
+
 // 7. Conclusions
+
 // 8. References (No wikipedia for any reason, try to make them scientific articles)
+
 // The document must be referenced
 
 // Note: if the document is not presented, I will not review its development of the project
