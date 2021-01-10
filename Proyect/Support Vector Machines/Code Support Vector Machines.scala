@@ -64,7 +64,7 @@ val train = splits(0)
 val test = splits(1)
 
 // We create the model and indicate the columns to use
-val lsvc = new LinearSVC().setMaxIter(100).setRegParam(0.1)
+val lsvc = new LinearSVC().setMaxIter(10).setRegParam(0.1)
 
 val lsvcModel = lsvc.fit(test)
 // We put everything in a pipe
