@@ -453,26 +453,45 @@ println(s"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}")
 
 Contenido
 
-Introducción	3
-Marco Teórico	4
-Máquinas de vectores de soporte	4
-Árbol de decisión	4
-Regresión logística	4
-Perceptrón multicapa	4
-Implementación	5
-Herramientas Utilizadas	5
-Resultados	6
-Corrida1 Perceptron Multicapa	6
-Corrida 1 Logistic Regresssion	10
-Corrida 1 Arbol de Decision	16
-Corrida 1  Maquina de vectores	20
-Conclusiones	22
-Referencias bibliográficas	23
-Anexos	24
-Code Support Vector Machines	24
-Code Decision Tree	26
-Code Logistic Regression	27
-Code Multilayer perceptron	29
+Introducción	
+
+Marco Teórico	
+
+Máquinas de vectores de soporte	
+
+Árbol de decisión	
+
+Regresión logística	
+
+Perceptrón multicapa	
+
+Implementación	
+
+Herramientas Utilizadas	
+
+Resultados	
+
+Corrida1 Perceptron Multicapa	
+
+Corrida 1 Logistic Regresssion	
+
+Corrida 1 Arbol de Decision	
+
+Corrida 1  Maquina de vectores	
+
+Conclusiones	
+
+Referencias bibliográficas	
+
+Anexos	
+
+Code Support Vector Machines	
+
+Code Decision Tree	
+
+Code Logistic Regression	
+
+Code Multilayer perceptron	
 
 
 
