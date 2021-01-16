@@ -436,7 +436,17 @@ println(s"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}")
 
 
 ``` 
-## &nbsp;&nbsp;Document.
+
+### &nbsp;&nbsp;Link Video.
+
+        
+#### In this practice, we did  the video
+     
+</br>
+
+#### &nbsp;&nbsp;&nbsp;&nbsp;https://youtu.be/_Bd3SdRGyuE .
+
+## &nbsp;&nbsp;Document
 
   <div align="justify">  
 
